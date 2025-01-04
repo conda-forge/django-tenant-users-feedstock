@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django_tenant_users-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_tenant_users-{{ version }}.tar.gz
   sha256: 331dc60d85e3b2650fbcd945b3953e05ccb5ab52c3d2bd611aeb10e034f3e634
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7.0,<4.0.0
+    - python {{ python_min }}
     - poetry-core >=1.2.0
     - pip
   run:
-    - python >=3.7.0,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - django >=3.2
     - django-tenants >=3.4.5,<4.0.0
 
@@ -31,6 +31,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://www.github.com/Corvia/django-tenant-users
