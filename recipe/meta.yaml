@@ -1,5 +1,5 @@
 {% set name = "django-tenant-users" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_tenant_users-{{ version }}.tar.gz
-  sha256: f13a5cf55b42197815738e65cb90f20b040621178d62d30bf200f00cbc0264df
+  sha256: 84607b1b64eaab8989098a50da372790467c76f9c9a584e4a0bf617db9452141
 
 build:
   noarch: python
@@ -22,7 +22,8 @@ requirements:
   run:
     - python >={{ python_min }},<4.0.0
     - django >=4.2
-    - django-tenants >=3.6.0,<4.0.0
+    - django-tenants <4.0,>=3.6
+    # - Django >=4.2
     # - Django >=4.2
 
 test:
