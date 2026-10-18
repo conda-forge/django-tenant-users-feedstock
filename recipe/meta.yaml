@@ -1,5 +1,5 @@
 {% set name = "django-tenant-users" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/django_tenant_users-{{ version }}.tar.gz
-  sha256: 9bf07f6a416a05fa29a41958d72d0e82971388346381cac280ef9f4a3a3d4794
+  sha256: 7496b5cde53beee22d383d1c3f33c8ebae3f0eddb5c4f1616f1dfcc89bb412a7
 
 build:
   noarch: python
@@ -22,7 +22,7 @@ requirements:
   run:
     - python >={{ python_min }},<4.0.0
     - django >=5.2
-    - django-tenants >=4.0,<5.0
+    - django-tenants <5.0,>=4.0
     # - Django >=4.2
     # - Django >=4.2
     # - Django >=4.2
